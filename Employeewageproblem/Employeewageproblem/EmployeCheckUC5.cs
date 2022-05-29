@@ -6,19 +6,21 @@ using System.Threading.Tasks;
 
 namespace EmployeeWageProgram
 {
-    internal class TotalEmployeeWage
+    internal class TotalEmployeeWageHrs
     {
         public const int Is_Full_Time = 1;
         public const int Is_Part_Time = 2;
         public const int EMP_RATE_PER_HR = 20;
         public const int NUM_OF_WORKING_DAYS = 20;
-        public static void EmployeeWageForDays()
+        public const int MAX_HRS_IN_MONTH = 100;
+        public static void EmployeeWageForHrs()
         {
             int empHrs = 0;
-            int empWage = 0;
-            int totalempWage = 0;
-            for (int day = 0; day <= NUM_OF_WORKING_DAYS; day++)
+            int totalempHrs = 0;
+            int totalworkingdays = 0;
+            while (totalempHrs <= MAX_HRS_IN_MONTH && totalworkingdays < NUM_OF_WORKING_DAYS)
             {
+                totalworkingdays++;
                 Random random = new Random();
                 int empCheck = random.Next(0, 3);
                 switch (empCheck)
@@ -33,13 +35,12 @@ namespace EmployeeWageProgram
                         empHrs = 0;
                         break;
                 }
-                empWage = empHrs * EMP_RATE_PER_HR;
-                totalempWage += empWage;
-                Console.WriteLine("Emp Wage :" + empWage);
+                totalempHrs += empHrs;
+                Console.WriteLine("Day#:" + totalworkingdays + "Emp Hrs:" + empHrs);
             }
-            Console.WriteLine("Total EmpWage :" + totalempWage);
+            int totalempWage = totalempHrs * EMP_RATE_PER_HR;
+            Console.WriteLine("Total Emp Wage :" + totalempWage);
             Console.ReadLine();
         }
-
     }
 }
