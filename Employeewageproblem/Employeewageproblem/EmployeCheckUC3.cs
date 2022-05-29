@@ -6,22 +6,28 @@ using System.Threading.Tasks;
 
 namespace EmployeeWageProgram
 {
-    internal class EmployeeWage
+    internal class EmployeeWages
     {
-        public static void EmployeeRatePerHr()
+        public static void EmployeeRatePerHrs()
         {
 
             int Is_Full_Time = 1;
+            int Is_Part_Time = 2;
             int Emp_Rate_Per_Hr = 20;
             int empwage = 0;
             int emphrs = 0;
             Random random = new Random();
-            int empCheck = random.Next(2);
+            int empCheck = random.Next(3);
             if (empCheck == Is_Full_Time)
             {
                 Console.WriteLine("Employee is Present");
                 emphrs = 8;
 
+            }
+            else if (empCheck == Is_Part_Time)
+            {
+                Console.WriteLine("Employee is Present Part Time");
+                emphrs = 4;
             }
             else
             {
